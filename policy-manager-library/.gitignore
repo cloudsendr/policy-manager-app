@@ -1,0 +1,16 @@
+.DS_Store
+
+node_modules/
+dev/js/.DS_Store
+/platforms
+policy-manager/platforms/*
+policy-manager/plugins/
+plugins/ios.json
+policy-manager/www/
+www/css/ionic.app.css
+www/css/ionic.app.min.css
+www/lib/policy-manager-lib.min.js
+www/js/app.min.js
+www/js/app.min.js.map
+www/lib/policy-manager-lib.min.js
+
