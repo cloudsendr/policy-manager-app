@@ -78,14 +78,14 @@ export default class {
         let policyData = new Models.Policy();
 
         try {
-            policyData.policyNumber = policy.policyNumber;
-            policyData.status = (policy.status) ? policy.status : "";
-            policyData.address = (policy.address) ? policy.address : "";
-            policyData.lenderId = (policy.lenderId) ? policy.lenderId : "";
-            policyData.agentId = (policy.agentId) ? policy.agentId : "";
-            policyData.sellerId = (policy.sellerId) ? policy.sellerId : "";
-            policyData.buyerId = (policy.buyerId) ? policy.buyerId : "";
-            policyData.timestamp = (policy.timestamp) ? policy.timestamp : new date();
+          policyData.id = policy.id;
+          policyData.policyNumber = policy.policyNumber;
+          policyData.status = policy.status;
+          policyData.address = policy.address;
+          policyData.lender = policy.lender;
+          policyData.agent = policy.agent;
+          policyData.seller = policy.seller;
+          policyData.buyer = policy.buyer;
         } catch (e) {
             console.error("[.updatePolicy()] Invalid policy given: ", policy);
             return privateProps.get(this).rejection.badRequest("Invalid policy");
@@ -128,23 +128,6 @@ export default class {
         return services.get(this).policyManagerService.savePolicy(policyData);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @desc Get interestedParties datad
      * @returns {Promise}
@@ -185,7 +168,8 @@ export default class {
         try {
             interestedPartyData.id = interestedParty.id;
             interestedPartyData.type = (interestedParty.type) ? interestedParty.type : "";
-            interestedPartyData.fullName = (interestedParty.fullName) ? interestedParty.fullName : "";
+            interestedPartyData.firstName = (interestedParty.firstName) ? interestedParty.firstName : "";
+            interestedPartyData.lastName = (interestedParty.lastName) ? interestedParty.lastName : "";
             interestedPartyData.email = (interestedParty.email) ? interestedParty.email : "";
             interestedPartyData.phone = (interestedParty.phone) ? interestedParty.phone : "";
             interestedPartyData.timestamp = (interestedParty.timestamp) ? interestedParty.timestamp : new date();
@@ -194,7 +178,7 @@ export default class {
             return privateProps.get(this).rejection.badRequest("Invalid interestedParty");
         }
 
-        return services.get(this).interestedPartyManagerService.updateInterestedParty(interestedPartyData);
+        return services.get(this).interestedPartyService.updateInterestedParty(interestedPartyData);
     }
 
     /**
@@ -223,7 +207,7 @@ export default class {
             return privateProps.get(this).rejection.badRequest("Invalid interestedParty");
         }
 
-        return services.get(this).interestedPartyManagerService.saveInterestedParty(interestedPartyData);
+        return services.get(this).interestedPartyService.saveInterestedParty(interestedPartyData);
     }
 
 }

@@ -25,7 +25,7 @@ config.services_directory = "src/services/";
 config.tmpl_directory = "templates/";
 config.api_service_tmpl_marker = "{$application_server}";
 config.api_service_tmpl = "APIService.tmpl";
-config.application_server = "https://myserver";
+config.application_server = "http://localhost:10616";
 
 
 

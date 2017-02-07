@@ -3,7 +3,6 @@
 node_modules/
 dev/js/.DS_Store
 /platforms
-/dist
 policy-manager/platforms/*
 policy-manager/plugins/
 plugins/ios.json

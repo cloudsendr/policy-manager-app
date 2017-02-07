@@ -15,15 +15,35 @@ export default class {
      */
     constructor() {
         privateProps.set(this, {
-            policyNumber: null,
-            status: null,
-            address: null,
-            lenderId: null,
-            agentId: null,
-            sellerId: null,
-            buyerId: null,
-            timestamp: null
+          id: null,
+          policyNumber: null,
+          status: null,
+          address: null,
+          lenderId: null,
+          agentId: null,
+          sellerId: null,
+          buyerId: null,
+          timestamp: null
         });
+    }
+
+    /**
+     * @desc id
+     * @return {string}
+     * @example
+     * "588fa44fe4b025619191b1c3"
+     */
+    get id() {
+        let instance = privateProps.get(this);
+        return instance.id;
+    }
+
+    /**
+     * @param {String} id
+     */
+    set id(id: string) {
+        let instance = privateProps.get(this);
+        instance.id = id;
     }
 
     /**
@@ -203,6 +223,7 @@ export default class {
         let instance = privateProps.get(this);
 
         return {
+          id: instance.id,
           policyNumber: instance.policyNumber,
           status: instance.status,
           address: instance.address,

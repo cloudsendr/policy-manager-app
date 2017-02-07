@@ -1,0 +1,51 @@
+{
+  "name": "policy-manager-ui",
+  "version": "1.0.0",
+  "description": "policy-manager app",
+  "s3Dependencies": {
+    "policy-manager-library": "1.0.0"
+  },
+  "dependencies": {
+    "fs": "0.0.2",
+    "gulp": "^3.5.6",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.0.4",
+    "run-sequence": "^1.1.5"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-chug": "^0.5.1",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^2.2.14",
+    "path": "^0.12.7",
+    "shelljs": "^0.3.0",
+    "streamqueue": "^1.1.1"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-network-information",
+    "cordova-plugin-keepe-cardio",
+    {
+      "variables": {
+        "SENDER_ID": "716259692006"
+      },
+      "locator": "phonegap-plugin-push"
+    }
+  ],
+  "cordovaPlatforms": [],
+  "scripts": {
+    "postinstall": "s3npm install"
+  }
+}

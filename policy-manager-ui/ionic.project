@@ -1,0 +1,20 @@
+{
+  "name": "policy-manager-ui",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "copy-fonts",
+    "buildAll",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*"
+  ],
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
+}

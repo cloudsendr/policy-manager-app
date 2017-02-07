@@ -55,6 +55,8 @@ export default class PolicyManagerService extends APIService {
      * @returns {Promise}
      */
     updatePolicy(policy: Models.Policy) {
+      console.log("in policy =", policy);
+      console.log("json policy =", policy.toObject());
         return this.doPut(END_POINTS.policies, policy.toObject());
     }
     /**

@@ -7,25 +7,20 @@ import * as Models from '../models/';
  * @access private
  */
 const END_POINTS = {
-    policies: "/api/v1/interestedParties"
+    interestedParties: "/api/v1/interestedParties"
 };
 
-
-app.get('/api/v1/interestedParties', controller.findInterestedParties(app));
-  app.get('/api/v1/interestedParties/:id', controller.findInterestedParty(app));
-  app.post('/api/v1/interestedParties', controller.saveInterestedParty(app));
-  app.put('/api/v1/interestedParties', controller.updateInterestedParty(app));
 /**
- * @name PolicyManagerService
+ * @name InterestedPartyService
  *
  * @desc
- * API proxy for policy manager handling.
+ * API proxy for interested party  handling.
  * All service calls return a Promise, resolving with the data.
  *
  * Endpoints:
- * * policies: /api/v1/policies
+ * * interestedParties: /api/v1/interestedParties
  */
-export default class PolicyManagerService extends APIService {
+export default class InterestedPartyService extends APIService {
     /**
      * @param {Service} $http - AngularJS, $http service for making API calls
      * @see https://docs.angularjs.org/api/ng/service/$http
@@ -50,24 +45,24 @@ export default class PolicyManagerService extends APIService {
      * @param   {string} partyId
      * @returns {Promise}
      */
-    getInterestedPartyId(partyId: string) {
+    getInterestedPartyById(partyId: string) {
         return this.doGet(END_POINTS.interestedParties + '/' + partyId);
     }
 
     /**
      * @desc Update interestedParty data
-     * @param {Policy} interestedParty
+     * @param {InterestedParty} interestedParty
      * @returns {Promise}
      */
     updateInterestedParty(interestedParty: Models.InterestedParty) {
-        return this.doPut(END_POINTS.interestedParty, interestedParty.toObject());
+        return this.doPut(END_POINTS.interestedParties, interestedParty.toObject());
     }
     /**
      * @desc Save interestedParty data
-     * @param {Policy} interestedParty
+     * @param {InterestedParty} interestedParty
      * @returns {Promise}
      */
     saveInterestedParty(interestedParty: Models.InterestedParty) {
-        return this.doPost(END_POINTS.interestedParty, interestedParty.toObject());
+        return this.doPost(END_POINTS.interestedParties, interestedParty.toObject());
     }
 }

@@ -1,0 +1,445 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+// Include all of Ionic
+
+//Themes used from colourlovers.com:
+//Wintry Morning (by justkelly3)
+//Wintry Disposition
+//Cruel Water at Night
+
+@import url(https://fonts.googleapis.com/css?family=Open%20Sans);
+$font-family-base: "Open Sans", sans-serif !default;
+
+$base-background-color:                     #f1f1f1 !default;
+
+$positive:                                  #7DA4E9 !default;
+$balanced:                                  #58B392 !default;
+$assertive:                                 #8C1B1B !default;
+
+$bar-stable-bg:                             #03a9f4 !default;
+$bar-stable-text:                           #FFFFFF !default;
+$bar-stable-border:                         #000716 !default;
+
+$button-dark-active-bg:                     #7888A2 !default;
+$bar-light-bg:                              #fff !default;
+$button-dark-bg:                            #5e80c5 !default;
+
+$bar-light-text:                            $bar-stable-border !default;
+
+$button-dark-text:                          $bar-stable-text !default;
+$button-dark-border:                        $button-dark-bg !default;
+
+$button-dark-active-border:                 $button-dark-active-bg !default;
+
+$button-default-text:                       $bar-stable-border !default;
+$button-font-size:                          14px !default;
+
+$tabs-stable-bg:                            $bar-stable-bg !default;
+$tabs-stable-border:                        $bar-stable-bg !default;
+$tabs-stable-text:                          $bar-stable-text !default;
+$tabs-off-opacity:                          0.75 !default;
+
+$item-divider-bg:                           $base-background-color !default;
+$item-divider-color:                        $bar-stable-bg !default;
+
+$content-padding:                           5px !default;
+
+$popup-background-color:                    $base-background-color !default;
+
+$bar-default-bg:                            $base-background-color !default;
+$toggle-on-default-bg:                      $bar-light-bg !default;
+
+// --------------------------------------------------------------------
+
+@import "www/lib/ionic/scss/ionic";
+
+//@font-face {
+//    font-family: 'Open Sans';
+//    src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+//    font-weight: normal;
+//    font-style: normal;
+//}
+
+//html *
+//{
+//   font-family: "Open Sans" !important;
+//}
+*[upper-case] {
+    text-transform: uppercase;
+}
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: #fff;
+    font-size: 24px;
+}
+.tabs-striped.tabs-stable .tab-item.tab-item-active {
+    border-color: #ff5252;
+    color: #fff;
+}
+.tabs-striped.tabs-stable .tabs {
+    background-color: #03a9f4;
+}
+.tabs-striped.tabs-stable .tab-item {
+    color: #7fd3fa;   
+}
+.tabs-icon-top > .tabs .tab-item {
+    font-size: 10px;
+    line-height: 44px;
+}
+.popup .popup-head {
+    background-color: #030C22;
+}
+.popup .popup-head .popup-title {
+    color: white;
+}
+.popup .popup-buttons button.button-default {
+    background-color: #7888A2;
+    color: white;
+}
+.popup-body {
+    margin: 3px;
+    background-color: white;
+}
+.item-input-wrapper {
+    background-color: white;
+}
+.button {
+    text-transform: uppercase;
+}
+.button[vertical-align="middle"] {
+    vertical-align: middle;
+}
+.button[vertical-align="top"] {
+    vertical-align: super;
+}
+.button[vertical-align="bottom"] {
+    vertical-align: sub;
+}
+.button.disabled, .button[disabled] {
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+.button-bar .button {
+    margin: 1px;
+}
+.button-bar > .button:first-child.right-border {
+    border-right: 1px solid;
+}
+.button-bar > .button:only-child {
+    border-radius: 2px 2px 2px 2px;
+}
+.item-icon-left .icon, .item-icon-right .icon {
+    color: #000716;
+}
+.item-divider.tabs {
+    background-color: #030C22;
+}
+.item-divider.tabs .tab-item {
+    color: white;
+}
+.bar-subheader[slim-subheader] {
+    height: 35px !important;
+}
+.bar-subheader[slim-subheader] > .title {
+    line-height: 35px;
+    font-size: 12px;
+}
+.item-radio[space-between] {
+    margin-bottom: 5px;
+}
+ul.rating > li > .icon {
+    color: #687FA9;
+}
+ul.rating[small-packed] > li > .icon {
+    font-size: 20px;
+}
+ul.rating[small-pd61010] > li {
+    padding: 0px;
+}
+.platform-android ion-header-bar.bar-subheader[avoid-android-tabs] {
+    top: 93px !important;
+}
+.has-slim-subheader {
+    top: 80px;
+}
+img[cchs-logo] {
+    height: 65px;
+    width: 65px;
+    margin: auto;
+    background-color: #687FA9;
+    border-radius: 5px;
+}
+ion-popover-view[fit-contents] {
+    height: auto;
+}
+ion-popover-view[fit-contents] > ion-content {
+    position: relative;
+}
+ion-footer-bar[large-subfooter] {
+    height: 60px;
+    bottom: 60px;
+}
+ion-footer-bar[large-subfooter]  > .button-bar > .button { 
+    min-height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+}
+ion-footer-bar[large-footer] {
+    height: 60px;
+}
+ion-modal-view[transparent-background] {
+    background: rgba(0,0,0,0.85);
+}
+ion-content[modal-content] {
+    padding: 5px;
+}
+.has-large-footer {
+    bottom: 120px;
+}
+section.launch-view {
+    margin: 50% auto;
+    color: #030C22;
+    text-align: center;
+}
+section.launch-view > .company-name {
+    font-size: 25px;
+    font-weight: 800;
+    
+}
+section.launch-view > .tagline {
+    font-size: 16px;
+}
+section.launch-view > .tagline span {
+    color: #687FA9;
+}
+span.tab-title {
+    display: block;
+    height: 44px;
+    font-size: 14px;
+}
+.item[no-bottom-border] {
+    border-bottom: none;
+}
+.item > .item-note {
+    color: #030C22;
+}
+
+/**
+* Icons
+*/
+.item-icon-left .icon.service-request-icon {
+    color: #bd5959;
+}
+.item-icon-left .icon.appointment-icon {
+    color: #78a8ca;
+}
+.item-icon-left .icon.triggered-icon {
+    color: #ffc900;
+}
+.item-icon-left .icon.ion-email {
+    color: #a38ee6;
+}
+.item-icon-left .icon.ion-waterdrop {
+    color: #7DA4E9;
+}
+.item-icon-left .icon.ion-thermometer {
+    color: #d61010;
+    font-size: 36px;
+}
+.item-icon-left .icon.estimate-icon {
+    color: #2ba266;
+}
+.item-icon-left .icon.error-icon {
+    color: #8C1B1B;
+}
+
+/**
+* Markdown styling
+*/
+[markdown-to-html] table {
+    width: 100%; 
+    font-size: 14px; 
+}
+[markdown-to-html] table > tbody {
+    text-align: center;
+}
+[markdown-to-html] table > thead {
+    background-color: #E3E3D9;
+    color: #030C22;
+}
+[markdown-to-html] table > tbody > tr {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #030C22;
+}
+[markdown-to-html] table > tbody > tr:last-child {
+    background-color: #687FA9;
+    color: white;
+}
+
+/**
+* Activiylog notice
+*/
+[activity-log-notice='frozen'] {
+    background-color: #a1c8f9;
+    border: 1px solid #89bbf9;
+}
+[activity-log-notice='frozen'] > .icon {
+    color: #000716;
+}
+[activity-log-notice='frozen'] > p {
+    color: #000716;
+}
+[activity-log-notice='enroute'] {
+    background-color: #58B392;
+    border: 1px solid #58B392;
+}
+[activity-log-notice='enroute'] > .icon {
+    color: #FFF;
+}
+[activity-log-notice='enroute'] > p {
+    color: #FFF;
+}
+
+/**
+ * Animations
+ */
+.modal.fade-in.ng-enter {
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+.modal.fade-in.ng-leave {
+   -webkit-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+}
+
+/**
+ *ion-content-banner style overrides
+ */
+.content-banner.info {
+    height: 60px;
+    opacity: .9;
+    line-height: 25px;
+}
+.content-banner.lg-error {
+    height: 60px;
+    opacity: .9;
+    line-height: 25px;
+    background-color: #8C1B1B;
+}
+.content-banner.error {
+    background-color: #8C1B1B;
+}
+.content-banner.validation {
+    background-color: #1D2528;
+}
+.content-banner.network {
+    background-color: #4E5778;
+}
+.content-banner-close .button .icon:before, .button.icon:before, .button.icon-left:before, .button.icon-right:before {
+    line-height: 29px !important;
+}
+/**
+ * This CSS uses adjacent selectors instead of general sibling (~) selectors
+ * for ion radio that are broken in iOS 9 UIWebView.
+ *
+ * To apply the patch, include this CSS after your ionic.css include.
+ */
+
+.item-radio input:checked + .radio-content .item-content {
+    /* style the item content when its checked */
+    background: #f7f7f7;
+}
+.item-radio input:checked + .radio-content .radio-icon {
+    /* show the checkmark icon when its checked */
+    visibility: visible;
+}
+.list[fixed-size] {
+    height: 10rem;
+}
+.full-width {
+    width: 100%;
+}
+button[disabled="disabled"] {
+    opacity: .5;
+}
+.animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+.pw[cc-type] {
+    font-size: 14pt;
+    vertical-align: middle;
+}
+
+/* Color overrides */
+
+.tabs-stable > .tabs, .tabs.tabs-stable {
+    border-color: #930C22;
+    background-color: #03a9f4;
+    background-image: linear-gradient(0deg, #030C22, #030C22 50%, transparent 50%);
+    color: #FFFFFF;
+}
+
+.bar.bar-stable {
+    border-color: #000716;
+    background-color: #03a9f4;
+    background-image: linear-gradient(0deg, #000716, #000716 50%, transparent 50%);
+    color: #FFFFFF;
+}
+.item[bottom-shadow] {
+    box-shadow: 1px 3px 8px 0px #b2b2b2;
+    padding-bottom: inherit;
+}
+.item p[activity-bottom] {
+    padding-bottom: inherit;
+    margin-bottom: 6px;
+}
+.more-tab {
+    max-width: 15% !important;
+}
+.activity-tab {
+    max-width: 25% !important;
+}
+.activity-day {
+    padding-top: 0px;
+    font-size: small;
+    color: #777;
+}
+
+
+
+.header .col {
+  background-color:lightgrey;
+}
+
+.col {
+  border: solid 1px grey;
+  border-bottom-style: none;
+  border-right-style: none;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+

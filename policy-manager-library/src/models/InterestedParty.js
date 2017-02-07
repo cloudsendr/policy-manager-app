@@ -17,7 +17,8 @@ export default class {
         privateProps.set(this, {
             id: null,
             type: null,
-            fullName: null,
+            firstName: null,
+            lastName: null,
             email: null,
             phone: null,
             timestamp: null
@@ -63,22 +64,41 @@ export default class {
     }
 
     /**
-     * @param {String} fullName - Party full name
+     * @param {String} firstName - Party first name
      */
-    get fullName() {
+    get firstName() {
         let instance = privateProps.get(this);
-        return instance.fullName;
+        return instance.firstName;
     }
 
     /**
-     * @desc fullName
+     * @desc lastName
      * @return {string}
      * @example
-     * "Sal Salesman"
+     * "John"
      */
-    set fullName(address: string) {
+    set firstName(firstName: string) {
         let instance = privateProps.get(this);
-        instance.fullName = fullName;
+        instance.firstName = firstName;
+    }
+
+    /**
+     * @param {String} lastName - Party last name
+     */
+    get lastName() {
+        let instance = privateProps.get(this);
+        return instance.lastName;
+    }
+
+    /**
+     * @desc lastName
+     * @return {string}
+     * @example
+     * "John"
+     */
+    set lastName(lastName: string) {
+        let instance = privateProps.get(this);
+        instance.lastName = lastName;
     }
 
     /**
@@ -148,7 +168,8 @@ export default class {
          return {
           id: instance.id,
           type: instance.type,
-          fullName: instance.fullName,
+          firstName: instance.firstName,
+          lastName: instance.lastName,
           email: instance.email,
           phone: instance.phone,
           timestamp: instance.timestamp

@@ -1,0 +1,33 @@
+<ion-item class="item">
+    <span class="item-note" align="left" ng-bind="vm.display.party.type | uppercase"></span>
+    <p align="left">Party Type:</p>
+    <span class="item-note">{{vm.display.party.firstName}},&nbsp;{{vm.display.party.lastName}}</span>
+    <p>Full Name:</p>
+    <input class="item-note" align="right" ng-model="vm.display.party.email"></input>
+    <p>Email:</p>
+    <input class="item-note" align="right" ng-model="vm.display.party.phone"></input>
+    <p>Phone:</p>
+</ion-item>
+<ion-item>
+    <button class="button button-block button-dark" align="center" ng-click="vm.events.updateParty(vm.display.party)">Save</button>
+</ion-item>
+
+
+<!-- _id
+:
+"588f7f08057110734f63c952"
+email
+:
+"lender@bofa.com"
+fullName
+:
+"Bank of America USA"
+phone
+:
+"18005551212"
+timestamp
+:
+"2017-01-30T17:59:36.540Z"
+type
+:
+"agent" -->

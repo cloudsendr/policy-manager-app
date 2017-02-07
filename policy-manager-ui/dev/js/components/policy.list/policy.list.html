@@ -1,0 +1,21 @@
+<ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.events.refreshPolicies()"></ion-refresher>
+
+<ion-list>
+    <div class="row header">
+      <div class="col">Policy Number</div>
+      <div class="col">Status</div>
+      <div class="col">Address</div>
+    </div>
+    <div class="row" ng-repeat="policy in vm.display.policies" ng-click="vm.events.goToPolicy(policy)">
+      <div class="col">{{policy.policyNumber}}</div>
+      <div class="col">{{policy.status}}</div>
+      <div class="col">{{policy.address}}</div>
+    </div>
+</ion-list>
+<!-- NO ACTIVITY LOGS -->
+<ion-list ng-if="vm.display.policies.length === 0">
+    <ion-item class="item-text-wrap">
+        There are no policies at this time
+    </ion-item>
+</ion-list>
+<ion-infinite-scroll ng-if="vm.display.hasMore" on-infinite="vm.events.getMorePolicies()"></ion-infinite-scroll>

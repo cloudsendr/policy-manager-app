@@ -1,0 +1,46 @@
+<ion-content class="has-header has-large-footer" has-bouncing="false" scroll="false">
+    <section class="launch-view">
+        <div class="row">
+            <img src='img/cchs-icon.svg' cchs-logo>
+        </div>
+        <div class="row company-name">
+            <div class="col">Connected Home, Inc.</div>
+        </div>
+        <div class="row">
+            <div class="col">&nbsp;</div>
+        </div>
+        <div class="row tagline">
+            <div class="col">Home Service. Made <span>Smarter.</span></div>
+        </div>
+    </section>
+</ion-content>
+<ion-footer-bar class="bar-subfooter" large-subfooter>
+    <div class="button-bar">
+        <button class="button button-block button-dark" ng-click="vm.display.modals.signUp.instance.show()">JOIN NOW</button>
+    </div>
+</ion-footer-bar>
+<ion-footer-bar align-title="center" large-footer>
+    <div class="button-bar">
+        <button class="button button-clear button-dark" ng-click="vm.display.modals.signIn.instance.show()">SIGN IN</button>
+    </div>
+</ion-footer-bar>
+
+<script id="connected-sign-in.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-stable">
+            <button class="button button-icon icon ion-close-circled" ng-click="vm.display.modals.signIn.instance.hide()"></button>
+            <h1 class="title">Connected Home Sign In</h1>
+        </ion-header-bar>
+        <connected-sign-in></connected-sign-in>
+    </ion-modal-view>
+</script>
+
+<script id="connected-sign-up.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-stable">
+            <button class="button button-icon icon ion-close-circled" ng-click="vm.display.modals.signUp.instance.hide()"></button>
+            <h1 class="title"></h1>
+        </ion-header-bar>
+        <connected-sign-up></connected-sign-up>
+    </ion-modal-view>
+</script>

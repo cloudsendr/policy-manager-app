@@ -4,7 +4,7 @@
  * @access private
  */
 
-const API_URL = "https://myserver/policies"
+const API_URL = "http://localhost:10616"
 
 /**
  * @type {WeakMap}

@@ -1,17 +1,20 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
 .DS_Store
 
 node_modules/
 dev/js/.DS_Store
 /platforms
-/dist
-policy-manager/platforms/*
-policy-manager/plugins/
+platforms/*
+/plugins/*
+plugins/
 plugins/ios.json
-policy-manager/www/
+www/
+/www/*
 www/css/ionic.app.css
 www/css/ionic.app.min.css
 www/lib/policy-manager-lib.min.js
 www/js/app.min.js
 www/js/app.min.js.map
 www/lib/policy-manager-lib.min.js
-
