@@ -122,6 +122,10 @@ $toggle-on-default-bg:                      $bar-light-bg !default;
 .button {
     text-transform: uppercase;
 }
+.button.button-center {
+    width: 20%;
+    margin: 0 auto;
+}
 .button[vertical-align="middle"] {
     vertical-align: middle;
 }
@@ -373,6 +377,13 @@ span.tab-title {
 .list[fixed-size] {
     height: 10rem;
 }
+.list {
+    margin: 0 auto;
+}
+.scroll {
+    width: 60%;
+    margin: 0 auto;
+}
 .full-width {
     width: 100%;
 }
@@ -442,4 +453,13 @@ button[disabled="disabled"] {
 .row:last-child .col {
   border-bottom: solid 1px grey;
 }
-
+.item h2 {
+   width: 35%;
+}
+.item-note {
+   width: 65%;
+}
+.item-note.button-span {
+   width: 15%;
+   margin-left: 30px;
+}

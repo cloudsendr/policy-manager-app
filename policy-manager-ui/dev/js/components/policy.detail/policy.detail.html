@@ -1,35 +1,44 @@
 <ion-item class="item">
-    <span class="item-note" align="right" ng-bind="vm.display.policyDetail.policyNumber"></span>
-    <p align="left">Policy Number:</p>
-    <span class="item-note" ng-bind="vm.display.policyDetail.address"></span>
-    <p>Address:</p>
-    <span class="item-note" ng-if="vm.display.policyDetail.agent"
-          ng-click="vm.events.goToParty(vm.display.policyDetail.agent)">{{vm.display.policyDetail.agent.firstName}},&nbsp;{{vm.display.policyDetail.agent.lastName}}</span>
-    <p ng-if="vm.display.policyDetail.agent">Agent:</p>
-    <span class="item-note" ng-bind="vm.display.policyDetail.lender.firstName" ng-if="vm.display.policyDetail.lender"
-          ng-click="vm.events.goToParty(vm.display.policyDetail.lender)"></span>
-    <span class="item-note" ng-if="vm.display.policyDetail.lender">,&nbsp;</span>
-    <span class="item-note" ng-bind="vm.display.policyDetail.lender.lastName" ng-if="vm.display.policyDetail.lender"
-          ng-click="vm.events.goToParty(vm.display.policyDetail.lender)"></span>
-    <p ng-if="vm.display.policyDetail.lender">Lender:</p>
-    <span class="item-note" ng-bind="vm.display.policyDetail.seller.firstName" ng-if="vm.display.policyDetail.seller"
-          ng-click="vm.events.goToParty(vm.display.policyDetail.seller)"></span>
-    <span class="item-note" ng-if="vm.display.policyDetail.seller">,&nbsp;</span>
-    <span class="item-note" ng-bind="vm.display.policyDetail.seller.lastName" ng-if="vm.display.policyDetail.seller"
-          ng-click="vm.events.goToParty(vm.display.policyDetail.seller)"></span>
-    <p ng-if="vm.display.policyDetail.seller">Seller:</p>
-    <span class="item-note" ng-bind="vm.display.policyDetail.buyer.firstName" ng-if="vm.display.policyDetail.buyer"
-          ng-click="vm.events.goToParty(vm.display.policyDetail.buyer)"></span>
-    <span class="item-note" ng-if="vm.display.policyDetail.buyer">,&nbsp;</span>
-    <span class="item-note" ng-bind="vm.display.policyDetail.buyer.lastName" ng-if="vm.display.policyDetail.buyer"
-          ng-click="vm.events.goToParty(vm.display.policyDetail.buyer)"></span>
-    <p ng-if="vm.display.policyDetail.buyer">Buyer:</p>
-    <ion-item class="item-input item-select">
-      <p class="input-label">Status:</p>
-      <select ng-model="vm.display.policyDetail.status" ng-options="option.statusCode as option.status for option in vm.display.statusList" required>
-      </select>
-      </ion-item>
-      <div class="item">
-          <button class="button button-block button-dark" ng-click="vm.events.updatePolicy(vm.display.policyDetail)">Save</button>
-      </div>
-    </ion-item>
+    <div class="item">
+      <span class="item-note" align="left" ng-bind="vm.display.policyDetail.policyNumber"></span>
+      <h2>Policy Number:</h2>
+      <br>
+      <span class="item-note" align="left" ng-bind="vm.display.policyDetail.address"></span>
+      <h2>Address:</h2>
+    </div>
+    <br>
+    <div class="item" ng-click="vm.events.goToParty(vm.display.policyDetail.agent)" bottom-shadow>
+      <span class="item-note" ng-if="vm.display.policyDetail.agent">
+        {{vm.display.policyDetail.agent.firstName}}&nbsp;{{vm.display.policyDetail.agent.lastName}}
+      </span>
+      <p ng-if="vm.display.policyDetail.agent">Agent:</p>
+    </div>
+    <div class="item" ng-click="vm.events.goToParty(vm.display.policyDetail.lender)" bottom-shadow>
+      <span class="item-note" ng-if="vm.display.policyDetail.lender">
+        {{vm.display.policyDetail.lender.firstName}}&nbsp;{{vm.display.policyDetail.lender.lastName}}
+      </span>
+      <p ng-if="vm.display.policyDetail.lender">Lender:</p>
+    </div>
+    <div class="item" ng-click="vm.events.goToParty(vm.display.policyDetail.seller)" bottom-shadow>
+      <span class="item-note" ng-if="vm.display.policyDetail.seller">
+        {{vm.display.policyDetail.seller.firstName}}&nbsp;{{vm.display.policyDetail.seller.lastName}}
+      </span>
+      <p ng-if="vm.display.policyDetail.seller">Seller:</p>
+    </div>
+    <div class="item" ng-click="vm.events.goToParty(vm.display.policyDetail.buyer)" bottom-shadow>
+      <span class="item-note" ng-if="vm.display.policyDetail.buyer">
+        {{vm.display.policyDetail.buyer.firstName}}&nbsp;{{vm.display.policyDetail.buyer.lastName}}
+      </span>
+      <p ng-if="vm.display.policyDetail.buyer">Buyer:</p>
+    </div>
+    <br>
+    <div class="item" item-note"" bottom-shadow>
+      <span class="item-note button-span">
+        <button class="button button-block button-dark"ng-click="vm.events.updatePolicy(vm.display.policyDetail)">Save</button>
+      </span>
+      <span class="item-input item-select" >
+        <p class="input-label">Status:</p>
+        <select ng-model="vm.display.policyDetail.status" ng-options="option.statusCode as option.status for option in vm.display.statusList" required>
+        </select>
+      </span>
+    </div>

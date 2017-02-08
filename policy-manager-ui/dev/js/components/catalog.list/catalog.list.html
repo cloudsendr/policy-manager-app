@@ -1,63 +1,18 @@
-<ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.events.refreshActivityLogs()"></ion-refresher>
-<div item-height=activity.height vertical-align="middle" collection-repeat="activity in vm.display.activityLogsPlus ">
-  <span ng-if="activity.label" class="activity-day">
-      <p ng-bind="activity.label" ></p>
-  </span>
-  <div ng-class="{'animated slideOutLeft': vm.display.activityLogs[$index].slideOut}"  ng-if="activity.id">
-        <div class="list" on-swipe-left="vm.events.archiveActivityLog($index, activity.id)">
-            <div class="item item-icon-left" ng-click="vm.events.goToActivity(activity)" bottom-shadow>
-
-                <!-- TODO: Make into component -->
-                <i class="icon ion-alert-circled triggered-icon" ng-if="activity.type === vm.display.activityLogTypes.triageAlert.type"></i>
-                <i class="icon ion-calendar appointment-icon" ng-if="activity.type === vm.display.activityLogTypes.appointment.type"></i>
-                <i class="icon ion-wrench service-request-icon" ng-if="activity.type === vm.display.activityLogTypes.serviceRequest.type"></i>
-                <i class="icon ion-social-usd estimate-icon" ng-if="activity.type === vm.display.activityLogTypes.estimate.type"></i>
-                <i class="icon ion-close-circled error-icon" ng-if="activity.type === vm.display.activityLogTypes.paymentError.type"></i>
-                <i class="icon ion-email triggered-icon" ng-if="activity.type === vm.display.activityLogTypes.receipt.type"></i>
-
-                <p ng-bind="activity.title"></p>
-
-                <p ng-if="activity.age < 604800000" activity-bottom> </p>
-                <p ng-if="activity.age > 604800000" activity-bottom>{{ activity.creationDate | date:'M/d/yyyy' }}</p>
-            </div>
-        </div>
+<ion-list>
+    <div class="row header">
+      <div class="col">Message Body</div>
+      <div class="col">From Status</div>
+      <div class="col">To Status</div>
     </div>
-</div>
-
+    <div class="row" ng-repeat="entry in vm.display.catalog">
+      <div class="col">{{entry.body}}</div>
+      <div class="col">{{entry.fromStatus}}</div>
+      <div class="col">{{entry.toStatus}}</div>
+    </div>
+</ion-list>
 <!-- NO ACTIVITY LOGS -->
-<ion-list ng-if="vm.display.activityLogs.length === 0">
+<ion-list ng-if="vm.display.catalog.length === 0">
     <ion-item class="item-text-wrap">
-        There are no activity logs at this time
+        There are no catalog entries at this time
     </ion-item>
 </ion-list>
-<ion-infinite-scroll ng-if="vm.display.hasMore" on-infinite="vm.events.getMoreActivityLogs()"></ion-infinite-scroll>
-
-
-<script id="activity-filtering-types.html" type="text/ng-template">
-    <ion-modal-view>
-        <ion-header-bar class='bar bar-stable'>
-            <button class="button button-icon icon ion-close-circled" ng-click="vm.display.modals.filterOptions.instance.hide()"></button>
-            <h1 class="title">Filter</h1>
-        </ion-header-bar>
-        <ion-content has-bouncing="false">
-            <div class="list">
-                <ion-radio-fix ng-model="vm.display.activityLogFilter" ng-value="''" ng-click="vm.events.filterActivityLogs('')">ALL</ion-radio-fix>
-                <ion-radio-fix ng-model="vm.display.activityLogFilter" ng-value="activityType.type" ng-repeat="activityType in vm.display.activityLogTypes.typeArray track by activityType.type" ng-click="vm.events.filterActivityLogs(vm.display.activityLogFilter, activityType)">
-                    {{activityType.display}}
-                </ion-radio-fix>
-            </div>
-        </ion-content>
-    </ion-modal-view>
-</script>
-
-<script id="activity-overflow-options.html" type="text/ng-template">
-    <ion-popover-view fit-contents>
-        <ion-content has-bouncing="false" scroll="false">
-            <div class="list">
-                <a class="item" ng-click="vm.display.modals.filterOptions.instance.show()">
-                    Filter
-                </a>
-            </div>
-        </ion-content>
-    </ion-popover-view>
-</script>

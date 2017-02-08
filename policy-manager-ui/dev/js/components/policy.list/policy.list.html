@@ -1,6 +1,6 @@
 <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.events.refreshPolicies()"></ion-refresher>
 
-<ion-list>
+<ion-list width="70%" margin="0 auto">
     <div class="row header">
       <div class="col">Policy Number</div>
       <div class="col">Status</div>
@@ -8,7 +8,7 @@
     </div>
     <div class="row" ng-repeat="policy in vm.display.policies" ng-click="vm.events.goToPolicy(policy)">
       <div class="col">{{policy.policyNumber}}</div>
-      <div class="col">{{policy.status}}</div>
+      <div class="col">{{policy.status  | uppercase}}</div>
       <div class="col">{{policy.address}}</div>
     </div>
 </ion-list>
