@@ -29,6 +29,7 @@
             vm.events.getMorePolicies = getMorePolicies;
             vm.events.refreshPolicies = refreshPolicies;
             vm.events.goToPolicy = goToPolicy;
+            vm.events.getStatus = getStatus;
 
             // -----------------------------------------------
             //TODO: For create note entries for self initiated service requests
@@ -86,6 +87,10 @@
                         policyData: policy
                     });
                 }
+            }
+
+            function getStatus(status) {
+              return status.replace(/_/g, ' ').toUpperCase();
             }
         }
 })();
