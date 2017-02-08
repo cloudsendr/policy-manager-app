@@ -2,7 +2,7 @@
     angular.module("policy.detail", ["dataService.policyDetailService"])
         .directive("policyDetail", policyDetail);
 
-    function policyDetail($state, appFlowService, policyDetailService, POLICY_CHANNELS, PolicyLoadingService) {
+    function policyDetail($state, $ionicHistory, appFlowService, policyDetailService, POLICY_CHANNELS, PolicyLoadingService) {
         return {
             restrict: "E",
             scope: {
@@ -62,6 +62,7 @@
 
             function handleUpdatePolicy(policy) {
                 vm.display.policy = policy.data;
+                $ionicHistory.goBack();
             }
 
             function goToParty(party) {

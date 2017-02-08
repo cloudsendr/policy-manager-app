@@ -2,7 +2,7 @@
     angular.module("interested.party", ["dataService.interestedPartyService"])
         .directive("interestedParty", interestedParty);
 
-    function interestedParty($state, appFlowService, interestedPartyService, POLICY_CHANNELS, PolicyLoadingService) {
+    function interestedParty($state, $ionicHistory, appFlowService, interestedPartyService, POLICY_CHANNELS, PolicyLoadingService) {
         return {
             restrict: "E",
             scope: {
@@ -46,6 +46,7 @@
 
             function handleUpdateParty(party) {
                 vm.display.party = party.data;
+                $ionicHistory.goBack();
             }
         }
       }

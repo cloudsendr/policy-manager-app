@@ -6,7 +6,7 @@ config.dev = {
     fonts: ['dev/fonts/**']
 };
 
-config.policy_manager_library = '../policy-manager-library/dist/connected-home-lib.min.js';
+config.policy_manager_library = '../policy-manager-library/dist/policy-manager-lib.min.js';
 config.policy_manager_library_gulpfile = "../policy-manager-library/gulpfile.js";
 
 config.dest = "www";
