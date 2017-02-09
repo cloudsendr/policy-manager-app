@@ -8,7 +8,6 @@
         service.externalUrlFlows = externalUrlFlows();
 
         service.root = rootStateFlows();
-        service.launch = launchStateFlows();
         service.policy = policyFlows();
         service.policyDetail = policyDetailFlows();
         service.catalog = catalogFlows();
@@ -20,10 +19,6 @@
             var flows = {};
 
             flows.goToPolicy = go(APP_STATES.policies);
-            flows.goToCustomerAccount = go(APP_STATES.customerAccount);
-            flows.goToArchivedActivityLogs = go(APP_STATES.archivedActivityLogs);
-            flows.goToAppSettings = go(APP_STATES.appSettings);
-            flows.goToLaunch = go(APP_STATES.launch);
 
             return flows;
         }

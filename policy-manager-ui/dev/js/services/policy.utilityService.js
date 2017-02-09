@@ -6,17 +6,11 @@
         var _contentbanner = null;
         var service = {};
 
-        service.getActivityLogTypes = getActivityLogTypes;
-        service.getDeviceTypes = getDeviceTypes;
-        service.getProviderTypes = getProviderTypes;
         service.removeLeadingOneFromPhoneNumber = removeLeadingOneFromPhoneNumber;
         service.addLeadingOneOnPhoneNumber = addLeadingOneOnPhoneNumber;
         service.clearViewCache = clearViewCache;
-        service.cacheUserData = cacheUserData;
-        service.cacheUserDataNotFound = cacheUserDataNotFound;
         service.showContentBanner = showContentBanner;
         service.getFutureDateTime = getFutureDateTime;
-        service.isAccountComplete = isAccountComplete;
         service.getDevicePlatform = getDevicePlatform;
 
         service.triggerRejection = triggerRejection;
@@ -24,96 +18,10 @@
         service.displayNetworkError = displayNetworkError;
 
         service.initializePushNotifications = initializePushNotifications;
-        service.getStripeErrorCodes = getStripeErrorCodes;
 
         return service;
 
         // ---------------------------------------------------------
-
-        //TODO: Refactor the structure to something more sensible
-        //.types.triageAlert
-        //.display.triageAlert
-        //or something...
-        function getActivityLogTypes() {
-            var types = {
-                triageAlert: {
-                    type: "TRIAGE_ALERT",
-                    display: "Triage Alert"
-                },
-                appointment: {
-                    type: "APPOINTMENT",
-                    display: "Appointment",
-                    statuses: {
-                        cancelled: "CANCELLED",
-                        reschedule: "RESCHEDULE",
-                        completed: "COMPLETED",
-                        frozen: "FROZEN",
-                        enroute: "EN_ROUTE"
-                    }
-                },
-                serviceRequest: {
-                    type: "SERVICE_REQUEST",
-                    display: "Service Request",
-                    statuses: {
-                        created: "CREATED",
-                        scheduled: "SCHEDULED",
-                        cancelled: "CANCELLED",
-                        completed: "COMPLETED",
-                        enroute: "EN_ROUTE",
-                        frozen: "FROZEN"
-                    }
-                },
-                estimate: {
-                    type: "ESTIMATE",
-                    display: "Estimate"
-                },
-                paymentError: {
-                    type: "PAYMENT_ERROR",
-                    display: "Payment Error"
-                },
-                receipt: {
-                    type: "RECEIPT",
-                    display: "Receipt"
-                }
-            };
-
-            var typeArray = [];
-            for (var type in types) {
-                typeArray.push(types[type]);
-            }
-            types.typeArray = typeArray;
-
-            return types;
-        }
-
-        function getDeviceTypes() {
-            var types = {
-                water: {
-                    type: "water",
-                    display: "Water"
-                },
-                hvac: {
-                    type: "hvac",
-                    display: "HVAC/AC"
-                }
-            };
-
-            var typeArray = [];
-            for (var type in types) {
-                typeArray.push(types[type]);
-            }
-            types.typeArray = typeArray;
-
-            return types;
-        }
-
-        function getProviderTypes() {
-            return [
-                'Electrician',
-                'HVAC',
-                'Plumber'
-            ];
-        }
 
         function removeLeadingOneFromPhoneNumber(phoneNumber) {
             phoneNumber = phoneNumber + "";
@@ -139,25 +47,6 @@
             return $ionicHistory.clearCache();
         }
 
-        function cacheUserData(accountData) {
-            if (accountData.accountId) {
-                localStorageService.put(localStorageService.keys().myAccount, accountData.accountId);
-            } else if (accountData.id) {
-                localStorageService.put(localStorageService.keys().myAccount, accountData.id);
-            }
-            localStorageService.put(localStorageService.keys().username, accountData.username);
-            localStorageService.put(localStorageService.keys().fullName, accountData.firstName + ' ' + accountData.lastName);
-            localStorageService.put(localStorageService.keys().phoneNumber, accountData.phoneNumber);
-            //localStorageService.put(localStorageService.keys().isAccountComplete, accountData.isAccountComplete);
-            localStorageService.put(localStorageService.keys().isAccountComplete, false);
-        }
-
-        function cacheUserDataNotFound() {
-            localStorageService.put(localStorageService.keys().myAccount, localStorageService.keys().notFound);
-            localStorageService.put(localStorageService.keys().username, localStorageService.keys().notFound);
-            localStorageService.put(localStorageService.keys().fullName, localStorageService.keys().notFound);
-            localStorageService.put(localStorageService.keys().isAccountComplete, localStorageService.keys().notFound);
-        }
 
         //TODO: Perhaps make a PR to content banner author to broadcast messages on click and close...
         function showContentBanner(textArray, options) {
@@ -191,10 +80,6 @@
             };
         }
 
-        function isAccountComplete() {
-            return localStorageService.get(localStorageService.keys().isAccountComplete);
-        }
-
         function getDevicePlatform() {
             return ionic.Platform.platform();
         }
@@ -219,7 +104,6 @@
             return defer.promise;
         }
 
-        //Used for server errors coming from the ConnectedLibrary only
         function handleServerError(error) {
 
             if (error.data !== null) {
@@ -269,23 +153,6 @@
             push.on('error', function (e) {
                 alert("Error");
             });
-        }
-
-        function getStripeErrorCodes() {
-
-            return {
-                invalidNumbeer: "invalid_number",
-                invalidExpiryMonth: "invalid_expiry_month",
-                invalidExpiryYear: "invalid_expiry_year",
-                invalidCVC: "invalid_cvc",
-                incorrectNumber: "incorrect_number",
-                expiredCard: "expired_card",
-                incorrectCVC: "incorrect_cvc",
-                incorrectZip: "incorrect_zip",
-                cardDeclined: "card_declined",
-                missing: "missing",
-                processingError: "processing_error"
-            };
         }
     }
 })();
